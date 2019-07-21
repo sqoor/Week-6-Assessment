@@ -1,6 +1,6 @@
 console.log('GOOD LUCK 👩‍💻 👨‍💻')
 /* Q1:
-Usind For Each
+Using For Each
 Create a function called addKeyPowerIndex
 that takes an array of objects as a parameter
 and return this array with add a key to each object
@@ -15,7 +15,7 @@ var arrOfObj1 = [
   { e: 3 }
 ]
 
-Ex: addKeyPowerIndex(arrOfObj1)
+Ex: v
 => [
   {0: 0, a: 12},
   {1: 1, b: 5},
@@ -38,9 +38,13 @@ Ex: addKeyPowerIndex(arrOfObj2)
 ]   
 */
 
-function addKeyPowerIndex() {
+function addKeyPowerIndex(objectsArray) {
   // WRITE YOUR CODE UNDER THIS LINE  
+  objectsArray.forEach(function(element, index) {
+    element[index] = Math.pow(index, 2);
+  });
 
+  return objectsArray;
 }
 
 
@@ -50,13 +54,13 @@ function addKeyPowerIndex() {
 
 
 /* Q2:
-Usind Map
+Using Map
 Create a function called decreseBy
 that takes an array of numbers and number as a parameter
 and return a new array after will decrease this number 
 from each element in this array
 
-var arrOfNum1 = [77,5,33]
+var arrOfnum1 = [77,5,33]
 Ex: decreseBy(arrOfnum1,10)
 => [67,-5,23]
 
@@ -64,9 +68,11 @@ Ex: decreseBy(arrOfNum1,-6)
 => [83, 11, 39]
 */
 
-function decreseBy() {
-  // WRITE YOUR CODE UNDER THIS LINE 
-
+function decreseBy(arrrayOfNumbers, number) {
+  // WRITE YOUR CODE UNDER THIS LINE
+  return arrrayOfNumbers.map(function(element) {
+    return element - number;
+  });
 }
 
 
@@ -102,8 +108,11 @@ Ex: nameLongerThan(arrOfObj4,6)
 ]
 */
 
-function nameLongerThan() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function nameLongerThan(objectsArray, number) {
+  // WRITE YOUR CODE UNDER THIS LINE
+  return objectsArray.filter(function(obj) {
+    return obj.name.length > number;
+  });
 }
 
 
@@ -133,9 +142,13 @@ Ex: avgLength(arrOfObj4,"food")
 => 6.8
 */
 
-function avgLength() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function avgLength(objectsArr, key) {
+  // WRITE YOUR CODE UNDER THIS LINE
+  var lengthSum =  objectsArr.reduce(function(sum, element) {
+    return sum + element[key].length
+  }, 0);       
 
+  return lengthSum / objectsArr.length;
 }
 
 // Good luck :)
